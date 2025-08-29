@@ -2767,6 +2767,31 @@
                 'e_wallet': 'E-Wallet',
                 'installments': 'Installments',
                 'follow_us': 'Follow Us',
+                // Login footer (new)
+                'footer_customer_service': 'Customer Service',
+                'footer_about_eddy': 'About Eddy',
+                'footer_payment': 'Payment',
+                'footer_follow_us': 'Follow Us',
+                'footer_app_download': 'App Download',
+                'footer_help_centre': 'Help Centre',
+                'footer_how_to_buy': 'How To Buy',
+                'footer_how_to_sell': 'How To Sell',
+                'footer_payment_methods': 'Payment Methods',
+                'footer_shipping_delivery': 'Shipping & Delivery',
+                'footer_return_refund': 'Return & Refund',
+                'footer_shop_guarantee': 'Shop Guarantee',
+                'footer_contact_us': 'Contact Us',
+                'footer_about_us': 'About Us',
+                'footer_affiliate_program': 'Affiliate Program',
+                'footer_careers': 'Careers',
+                'footer_policies': 'Policies',
+                'footer_privacy': 'Privacy',
+                'footer_blog': 'Blog',
+                'footer_media_contact': 'Media Contact',
+                'footer_qr_code': 'QR Code',
+                'footer_app_store': 'App Store',
+                'footer_google_play': 'Google Play',
+                'footer_copyright': '© 2025 Eddy World. All Rights Reserved.',
                 
                 // Cart
                 'shopping_cart': 'Shopping Cart',
@@ -2971,6 +2996,31 @@
                 'e_wallet': 'กระเป๋าเงินอิเล็กทรอนิกส์',
                 'installments': 'ผ่อนชำระ',
                 'follow_us': 'ติดตามเรา',
+                // Login footer (new)
+                'footer_customer_service': 'บริการลูกค้า',
+                'footer_about_eddy': 'เกี่ยวกับ Eddy',
+                'footer_payment': 'การชำระเงิน',
+                'footer_follow_us': 'ติดตามเรา',
+                'footer_app_download': 'ดาวน์โหลดแอป',
+                'footer_help_centre': 'ศูนย์ช่วยเหลือ',
+                'footer_how_to_buy': 'วิธีการสั่งซื้อ',
+                'footer_how_to_sell': 'วิธีการขาย',
+                'footer_payment_methods': 'วิธีการชำระเงิน',
+                'footer_shipping_delivery': 'การจัดส่งสินค้า',
+                'footer_return_refund': 'การคืนเงินและสินค้า',
+                'footer_shop_guarantee': 'การรับประกันร้านค้า',
+                'footer_contact_us': 'ติดต่อเรา',
+                'footer_about_us': 'เกี่ยวกับเรา',
+                'footer_affiliate_program': 'โปรแกรมพันธมิตร',
+                'footer_careers': 'ร่วมงานกับเรา',
+                'footer_policies': 'นโยบาย',
+                'footer_privacy': 'ความเป็นส่วนตัว',
+                'footer_blog': 'บล็อก',
+                'footer_media_contact': 'ติดต่อสื่อ',
+                'footer_qr_code': 'คิวอาร์โค้ด',
+                'footer_app_store': 'App Store',
+                'footer_google_play': 'Google Play',
+                'footer_copyright': '© 2025 Eddy World. สงวนลิขสิทธิ์',
                 
                 // Cart
                 'shopping_cart': 'ตะกร้าสินค้า',
@@ -3168,6 +3218,31 @@
                 'e_wallet': '电子钱包',
                 'installments': '分期付款',
                 'follow_us': '关注我们',
+                // Login footer (new)
+                'footer_customer_service': '客户服务',
+                'footer_about_eddy': '关于 Eddy',
+                'footer_payment': '支付',
+                'footer_follow_us': '关注我们',
+                'footer_app_download': '应用下载',
+                'footer_help_centre': '帮助中心',
+                'footer_how_to_buy': '如何购买',
+                'footer_how_to_sell': '如何销售',
+                'footer_payment_methods': '支付方式',
+                'footer_shipping_delivery': '配送与交付',
+                'footer_return_refund': '退货与退款',
+                'footer_shop_guarantee': '商城保障',
+                'footer_contact_us': '联系我们',
+                'footer_about_us': '关于我们',
+                'footer_affiliate_program': '联盟计划',
+                'footer_careers': '加入我们',
+                'footer_policies': '政策',
+                'footer_privacy': '隐私',
+                'footer_blog': '博客',
+                'footer_media_contact': '媒体联络',
+                'footer_qr_code': '二维码',
+                'footer_app_store': 'App Store',
+                'footer_google_play': 'Google Play',
+                'footer_copyright': '© 2025 Eddy World. 版权所有',
                 'follow_us_on': '关注我们',
                 
                 // Cart
@@ -3445,6 +3520,61 @@
             return translations[currentLanguage][key] || translations['en'][key] || key;
         }
 
+        // Auto-translate common phrases (works for newly added DOM without adding keys)
+        const autoPhrases = {
+            'customer service': { th: 'บริการลูกค้า', zh: '客户服务' },
+            'help centre': { th: 'ศูนย์ช่วยเหลือ', zh: '帮助中心' },
+            'how to buy': { th: 'วิธีการสั่งซื้อ', zh: '如何购买' },
+            'how to sell': { th: 'วิธีการขาย', zh: '如何销售' },
+            'payment methods': { th: 'วิธีการชำระเงิน', zh: '支付方式' },
+            'shipping & delivery': { th: 'การจัดส่งสินค้า', zh: '配送与交付' },
+            'return & refund': { th: 'การคืนเงินและสินค้า', zh: '退货与退款' },
+            'shop guarantee': { th: 'การรับประกันร้านค้า', zh: '商城保障' },
+            'contact us': { th: 'ติดต่อเรา', zh: '联系我们' },
+            'about eddy': { th: 'เกี่ยวกับ Eddy', zh: '关于 Eddy' },
+            'about us': { th: 'เกี่ยวกับเรา', zh: '关于我们' },
+            'affiliate program': { th: 'โปรแกรมพันธมิตร', zh: '联盟计划' },
+            'careers': { th: 'ร่วมงานกับเรา', zh: '加入我们' },
+            'policies': { th: 'นโยบาย', zh: '政策' },
+            'privacy': { th: 'ความเป็นส่วนตัว', zh: '隐私' },
+            'blog': { th: 'บล็อก', zh: '博客' },
+            'media contact': { th: 'ติดต่อสื่อ', zh: '媒体联络' },
+            'payment': { th: 'การชำระเงิน', zh: '支付' },
+            'follow us': { th: 'ติดตามเรา', zh: '关注我们' },
+            'app download': { th: 'ดาวน์โหลดแอป', zh: '应用下载' },
+            'qr code': { th: 'คิวอาร์โค้ด', zh: '二维码' },
+            'app store': { th: 'App Store', zh: 'App Store' },
+            'google play': { th: 'Google Play', zh: 'Google Play' },
+            'facebook': { th: 'เฟซบุ๊ก', zh: 'Facebook' },
+            'instagram': { th: 'อินสตาแกรม', zh: 'Instagram' },
+            'line': { th: 'ไลน์', zh: 'LINE' },
+            'linkedin': { th: 'ลิงก์ดอิน', zh: 'LinkedIn' },
+            '© 2025 eddy world. all rights reserved.': { th: '© 2025 Eddy World. สงวนลิขสิทธิ์', zh: '© 2025 Eddy World. 版权所有' }
+        };
+
+        function autoTranslatePlainText(container) {
+            const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, null);
+            let node;
+            while ((node = walker.nextNode())) {
+                const original = node.nodeValue;
+                if (!original || !original.trim()) continue;
+                // Skip if text node is inside an element carrying data-translate
+                if (node.parentElement && node.parentElement.closest('[data-translate]')) continue;
+                const trimmed = original.trim();
+                const low = trimmed.toLowerCase();
+                const phrase = autoPhrases[low];
+                if (phrase) {
+                    const translated = currentLanguage === 'th' ? phrase.th : (currentLanguage === 'zh' ? phrase.zh : trimmed);
+                    if (translated !== trimmed) {
+                        // preserve leading/trailing spaces around the trimmed segment
+                        const leading = original.slice(0, original.indexOf(trimmed));
+                        const trailing = original.slice(original.indexOf(trimmed) + trimmed.length);
+                        node.nodeValue = leading + translated + trailing;
+                    }
+                }
+            }
+        }
+
         // Determine best initial language from browser settings
         function getBrowserPreferredLanguage() {
             const supported = ['en', 'th', 'zh'];
@@ -3676,6 +3806,9 @@
             
             // Update footer
             updateFooterTranslations();
+            // Translate login footer if present
+            const loginFooterEl = document.getElementById('full-login-footer');
+            if (loginFooterEl) translateNewContent(loginFooterEl);
             
             // Update admin content if present
             updateAdminTranslations();
@@ -3763,6 +3896,8 @@
                     initCarousel();
                 }
             }, 100);
+            // Also auto-translate any plain text phrases across the page (including newly added blocks)
+            try { autoTranslatePlainText(document.body); } catch (e) {}
         }
         
         function updateModalTranslations() {
@@ -3988,6 +4123,20 @@
         // Function to translate newly added content
         function translateNewContent(container) {
             if (!container) return;
+            // Translate elements with explicit data-translate keys within this container
+            const scopedDynamicElements = container.querySelectorAll('[data-translate]');
+            scopedDynamicElements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (!key) return;
+                // Inputs may want placeholder translated
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    if (element.hasAttribute('placeholder')) {
+                        element.setAttribute('placeholder', getText(key));
+                        return;
+                    }
+                }
+                element.textContent = getText(key);
+            });
             
             // Translate buttons
             const buttons = container.querySelectorAll('button, .btn');
@@ -4161,7 +4310,10 @@
             });
             
             // Translate any other dynamic content
-            translateNewContent(document.body);
+            // Auto-translate common phrases in new content
+            try {
+                autoTranslatePlainText(container);
+            } catch (e) {}
         }
         // Set up MutationObserver to automatically translate new content
         function setupLanguageObserver() {
@@ -7398,13 +7550,84 @@
             } else {
                 document.body.prepend(wrapper);
             }
+            // Insert gray footer banner AFTER the blue section so it sits lower than the blue background
+            const loginFooter = document.createElement('div');
+            loginFooter.id = 'full-login-footer';
+            loginFooter.style.cssText = 'background:#f3f4f6;';
+            loginFooter.innerHTML = `
+                <div style="max-width:1100px; margin:0 auto; padding:36px 0; display:grid; grid-template-columns: 1.2fr 1.2fr 1fr 1fr 1fr; gap:24px; color:#111827;">
+                    <div>
+                        <h4 data-translate="footer_customer_service" style="margin:0 0 12px 0; font-size:14px; color:#111827; text-transform:uppercase; letter-spacing:.02em;">Customer Service</h4>
+                        <ul style="list-style:none; padding:0; margin:0; color:#374151; font-size:13px; line-height:1.9;">
+                            <li><a href="#" data-translate="footer_help_centre" style="color:#374151; text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#374151'">Help Centre</a></li>
+                            <li><a href="#" data-translate="footer_how_to_buy" style="color:#374151; text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#374151'">How To Buy</a></li>
+                            <li><a href="#" data-translate="footer_how_to_sell" style="color:#374151; text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#374151'">How To Sell</a></li>
+                            <li><a href="#" data-translate="footer_payment_methods" style="color:#374151; text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#374151'">Payment Methods</a></li>
+                            <li><a href="#" data-translate="footer_shipping_delivery" style="color:#374151; text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#374151'">Shipping & Delivery</a></li>
+                            <li><a href="#" data-translate="footer_return_refund" style="color:#374151; text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#374151'">Return & Refund</a></li>
+                            <li><a href="#" data-translate="footer_shop_guarantee" style="color:#374151; text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#374151'">Shop Guarantee</a></li>
+                            <li><a href="#" data-translate="footer_contact_us" style="color:#374151; text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#374151'">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 data-translate="footer_about_eddy" style="margin:0 0 12px 0; font-size:14px; color:#111827; text-transform:uppercase; letter-spacing:.02em;">About Eddy</h4>
+                        <ul style="list-style:none; padding:0; margin:0; color:#374151; font-size:13px; line-height:1.9;">
+                            <li><a href="#" data-translate="footer_about_us" style="color:#374151; text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#374151'">About Us</a></li>
+                            <li><a href="#" data-translate="footer_affiliate_program" style="color:#374151; text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#374151'">Affiliate Program</a></li>
+                            <li><a href="#" data-translate="footer_careers" style="color:#374151; text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#374151'">Careers</a></li>
+                            <li><a href="#" data-translate="footer_policies" style="color:#374151; text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#374151'">Policies</a></li>
+                            <li><a href="#" data-translate="footer_privacy" style="color:#374151; text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#374151'">Privacy</a></li>
+                            <li><a href="#" data-translate="footer_blog" style="color:#374151; text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#374151'">Blog</a></li>
+                            <li><a href="#" data-translate="footer_media_contact" style="color:#374151; text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#374151'">Media Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 data-translate="footer_payment" style="margin:0 0 12px 0; font-size:14px; color:#111827; text-transform:uppercase; letter-spacing:.02em;">Payment</h4>
+                        <div style="display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:8px;">
+                            <div style="background:#fff; border:1px solid #e5e7eb; border-radius:6px; height:34px; display:flex; align-items:center; justify-content:center; font-size:12px; color:#6b7280;">Visa</div>
+                            <div style="background:#fff; border:1px solid #e5e7eb; border-radius:6px; height:34px; display:flex; align-items:center; justify-content:center; font-size:12px; color:#6b7280;">Mastercard</div>
+                            <div style="background:#fff; border:1px solid #e5e7eb; border-radius:6px; height:34px; display:flex; align-items:center; justify-content:center; font-size:12px; color:#6b7280;">AMEX</div>
+                            <div style="background:#fff; border:1px solid #e5e7eb; border-radius:6px; height:34px; display:flex; align-items:center; justify-content:center; font-size:12px; color:#6b7280;">KBank</div>
+                            <div style="background:#fff; border:1px solid #e5e7eb; border-radius:6px; height:34px; display:flex; align-items:center; justify-content:center; font-size:12px; color:#6b7280;">SCB</div>
+                            <div style="background:#fff; border:1px solid #e5e7eb; border-radius:6px; height:34px; display:flex; align-items:center; justify-content:center; font-size:12px; color:#6b7280;">UOB</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 data-translate="footer_follow_us" style="margin:0 0 12px 0; font-size:14px; color:#111827; text-transform:uppercase; letter-spacing:.02em;">Follow Us</h4>
+                        <ul style="list-style:none; padding:0; margin:0; color:#374151; font-size:13px; line-height:2;">
+                            <li><a href="#" style="color:#374151; text-decoration:none; display:inline-flex; align-items:center;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#374151'"><i class="fab fa-facebook" style="width:16px; margin-right:8px;"></i> <span data-translate="facebook">Facebook</span></a></li>
+                            <li><a href="#" style="color:#374151; text-decoration:none; display:inline-flex; align-items:center;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#374151'"><i class="fab fa-instagram" style="width:16px; margin-right:8px;"></i> <span data-translate="instagram">Instagram</span></a></li>
+                            <li><a href="#" style="color:#374151; text-decoration:none; display:inline-flex; align-items:center;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#374151'"><i class="fab fa-line" style="width:16px; margin-right:8px;"></i> <span data-translate="line">LINE</span></a></li>
+                            <li><a href="#" style="color:#374151; text-decoration:none; display:inline-flex; align-items:center;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#374151'"><i class="fab fa-linkedin" style="width:16px; margin-right:8px;"></i> <span data-translate="linkedin">LinkedIn</span></a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 data-translate="footer_app_download" style="margin:0 0 12px 0; font-size:14px; color:#111827; text-transform:uppercase; letter-spacing:.02em;">App Download</h4>
+                        <div style="display:flex; flex-direction:column; gap:8px;">
+                            <div data-translate="footer_qr_code" style="background:#fff; border:1px solid #e5e7eb; border-radius:6px; height:90px; display:flex; align-items:center; justify-content:center; color:#6b7280; font-size:12px;">QR Code</div>
+                            <div style="display:flex; gap:8px;">
+                                <a href="#" data-translate="footer_app_store" style="background:#fff; border:1px solid #e5e7eb; border-radius:6px; padding:6px 10px; font-size:12px; color:#111827; text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#111827'">App Store</a>
+                                <a href="#" data-translate="footer_google_play" style="background:#fff; border:1px solid #e5e7eb; border-radius:6px; padding:6px 10px; font-size:12px; color:#111827; text-decoration:none;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#111827'">Google Play</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-translate="footer_copyright" style="max-width:1100px; margin:0 auto; padding:16px 0 40px 0; border-top:1px solid #e5e7eb; color:#6b7280; font-size:12px;">© 2025 Eddy World. All Rights Reserved.</div>
+            `;
+            if (wrapper.parentNode) {
+                wrapper.parentNode.insertBefore(loginFooter, wrapper.nextSibling);
+            }
             // Ensure any new elements inside the login session get translated immediately
             translateNewContent(wrapper);
+            // Translate the login footer block as well
+            translateNewContent(loginFooter);
         }
 
         function hideFullLoginPage() {
             const existing = document.getElementById('full-login');
             if (existing) existing.remove();
+            const existingFooter = document.getElementById('full-login-footer');
+            if (existingFooter && existingFooter.parentElement) existingFooter.parentElement.removeChild(existingFooter);
             try {
                 document.body.classList.remove('login-session-active');
                 const header = document.querySelector('.header');
