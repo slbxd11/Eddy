@@ -7263,6 +7263,8 @@
         let guestSessionStart = Date.now();
         const GUEST_SESSION_LIMIT = 5 * 60 * 1000; // 5 minutes in milliseconds
         const GUEST_CLICK_LIMIT = 20; // Maximum clicks before requiring login
+        // Disable automatic guest popups (expiry and click-limit prompts)
+        const DISABLE_GUEST_AUTO_PROMPT = true;
 
         // Carousel functionality
         let currentSlide = 1;
@@ -7359,11 +7361,17 @@
         }
         
         function startGuestSessionTimer() {
+            if (DISABLE_GUEST_AUTO_PROMPT) {
+                // Do not schedule auto login prompts for guests
+                if (guestSessionTimer) {
+                    clearTimeout(guestSessionTimer);
+                }
+                return;
+            }
             // Clear any existing timer
             if (guestSessionTimer) {
                 clearTimeout(guestSessionTimer);
             }
-            
             // Set timer for 5 minutes
             guestSessionTimer = setTimeout(() => {
                 if (!currentUser) {
@@ -7373,17 +7381,18 @@
         }
         
         function setupGuestClickTracking() {
+            if (DISABLE_GUEST_AUTO_PROMPT) {
+                return; // Do not track clicks for auto prompts
+            }
             // Track clicks on interactive elements
             document.addEventListener('click', function(e) {
                 if (!currentUser) {
                     guestClickCount++;
-                    
                     // Check if click limit reached
                     if (guestClickCount >= GUEST_CLICK_LIMIT) {
                         showLoginPrompt('You\'ve been browsing for a while. Please log in to continue.');
                         guestClickCount = 0; // Reset counter
                     }
-                    
                     // Reset timer on each click
                     startGuestSessionTimer();
                 }
@@ -7402,6 +7411,11 @@
 
         
         function showLoginPrompt(message) {
+            // If we disabled auto prompts, route directly to the full login page
+            if (typeof DISABLE_GUEST_AUTO_PROMPT !== 'undefined' && DISABLE_GUEST_AUTO_PROMPT) {
+                openLoginSession();
+                return;
+            }
             const modal = document.createElement('div');
             modal.style.cssText = `
                 position: fixed;
@@ -7431,10 +7445,6 @@
                             ✨ ${getText('register_button')}
                         </button>
                     </div>
-                    
-                    <button onclick="this.closest('.modal').remove(); startGuestSessionTimer();" style="padding: 10px 20px; background: #f8f9fa; color: #666; border: 1px solid #e0e0e0; border-radius: 20px; cursor: pointer; font-size: 14px;">
-                        Continue as Guest (5 min)
-                    </button>
                 </div>
             `;
             
@@ -7444,7 +7454,6 @@
             setTimeout(() => {
                 if (modal.parentElement) {
                     modal.remove();
-                    startGuestSessionTimer(); // Restart timer
                 }
             }, 30000);
         }
