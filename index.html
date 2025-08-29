@@ -3559,7 +3559,7 @@
                 const original = node.nodeValue;
                 if (!original || !original.trim()) continue;
                 // Skip if text node is inside an element carrying data-translate
-                if (node.parentElement && node.parentElement.closest('[data-translate]')) continue;
+                if (node.parentElement && (node.parentElement.closest('[data-translate]') || node.parentElement.closest('[data-no-translate]'))) continue;
                 const trimmed = original.trim();
                 const low = trimmed.toLowerCase();
                 const phrase = autoPhrases[low];
@@ -4126,6 +4126,7 @@
             // Translate elements with explicit data-translate keys within this container
             const scopedDynamicElements = container.querySelectorAll('[data-translate]');
             scopedDynamicElements.forEach(element => {
+                if (element.hasAttribute('data-no-translate')) return;
                 const key = element.getAttribute('data-translate');
                 if (!key) return;
                 // Inputs may want placeholder translated
@@ -7466,8 +7467,7 @@
             wrapper.innerHTML = `
                 <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr; gap: 30px; align-items: center;">
                     <div style="color: white; text-align: center;">
-                        <div style="font-size: 80px; line-height: 1; margin-bottom: 20px;">🛍️</div>
-                        <h1 style="margin: 0 0 10px 0; font-size: 40px; font-weight: 700;">Eddy World</h1>
+                        <h1 style="margin: 0 0 10px 0; font-size: 40px; font-weight: 700; color: #ffd700;">Eddy World</h1>
                         <p style="margin: 0; opacity: 0.9; font-size: 18px;">${getText('welcome')}</p>
                     </div>
                     <div style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 24px; box-shadow: 0 10px 24px rgba(0,0,0,0.12);">
@@ -7612,7 +7612,7 @@
                         </div>
                     </div>
                 </div>
-                <div data-translate="footer_copyright" style="max-width:1100px; margin:0 auto; padding:16px 0 40px 0; border-top:1px solid #e5e7eb; color:#6b7280; font-size:12px;">© 2025 Eddy World. All Rights Reserved.</div>
+                <div data-no-translate="true" style="max-width:1100px; margin:0 auto; padding:16px 0 40px 0; border-top:1px solid #e5e7eb; color:#6b7280; font-size:12px;">© 2025 Eddy World. All Rights Reserved.</div>
             `;
             if (wrapper.parentNode) {
                 wrapper.parentNode.insertBefore(loginFooter, wrapper.nextSibling);
